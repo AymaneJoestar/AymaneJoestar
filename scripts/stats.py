@@ -86,7 +86,7 @@ def stats_card(u):
             f'<text x="24" y="{y}" font-size="13" fill="{TEXT}">{escape(k)}</text>'
             f'<text x="356" y="{y}" font-size="13" fill="{ACCENT}" text-anchor="end">{v}</text>\n'
         )
-    return frame(380, 66 + 6 * 24 + 4, "gh stats", body)
+    return frame(380, 66 + 6 * 24 + 22, "gh stats", body)
 
 
 def langs_card(u):
@@ -112,9 +112,9 @@ def langs_card(u):
             f'<rect x="168" y="{y-10}" width="{bar}" height="8" rx="2" fill="{colors[name]}"/>'
             f'<text x="356" y="{y}" font-size="13" fill="{ACCENT}" text-anchor="end">{pct:.1f}%</text>\n'
         )
-    scope = "public + private repos" if PRIVATE else "public repos"
-    body += f'<text x="24" y="{66 + 6 * 24 - 10}" font-size="11" fill="{DIM}">{scope} · notebooks excluded · names hidden</text>\n'
-    return frame(380, 66 + 6 * 24 + 4, "top languages", body)
+    scope = "public + private" if PRIVATE else "public only"
+    body += f'<text x="24" y="{66 + 6 * 24 + 6}" font-size="11" fill="{DIM}">{scope} · no notebooks · no repo names</text>\n'
+    return frame(380, 66 + 6 * 24 + 22, "top languages", body)
 
 
 if __name__ == "__main__":
