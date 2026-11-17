@@ -40,7 +40,9 @@ query($login: String!, $privacy: RepositoryPrivacy) {
 BG, BORDER = "#080d0b", "#1a2e26"
 DIM, TEXT, ACCENT, HEAD = "#4d6b5e", "#c9d6cf", "#5fd4a0", "#e6f2ec"
 FONT = "'JetBrains Mono','Fira Code','Courier New',monospace"
-SKIP = {"HTML", "CSS", "Makefile", "Dockerfile", "Shell", "Batchfile", "Jupyter Notebook"}
+SKIP = {"HTML", "CSS", "Makefile", "Dockerfile", "Shell", "Batchfile"}
+# notebooks are mostly JSON + outputs; count a fraction of their bytes as Python code
+NB_WEIGHT = 0.15
 
 
 def gql():
@@ -94,11 +96,13 @@ def langs_card(u):
     colors = {}
     for r in u["repositories"]["nodes"]:
         for e in r["languages"]["edges"]:
-            name = e["node"]["name"]
+            name, size, color = e["node"]["name"], e["size"], e["node"]["color"]
             if name in SKIP:
                 continue
-            totals[name] += e["size"]
-            colors[name] = e["node"]["color"] or ACCENT
+            if name == "Jupyter Notebook":
+                name, size, color = "Python", size * NB_WEIGHT, "#3572A5"
+            totals[name] += size
+            colors[name] = color or ACCENT
     top = totals.most_common(6)
     total = sum(s for _, s in top) or 1
     body = ""
@@ -113,7 +117,7 @@ def langs_card(u):
             f'<text x="356" y="{y}" font-size="13" fill="{ACCENT}" text-anchor="end">{pct:.1f}%</text>\n'
         )
     scope = "public + private" if PRIVATE else "public only"
-    body += f'<text x="24" y="{66 + 6 * 24 + 6}" font-size="11" fill="{DIM}">{scope} · no notebooks · no repo names</text>\n'
+    body += f'<text x="24" y="{66 + 6 * 24 + 6}" font-size="11" fill="{DIM}">{scope} · notebooks as python · no repo names</text>\n'
     return frame(380, 66 + 6 * 24 + 22, "top languages", body)
 
 
