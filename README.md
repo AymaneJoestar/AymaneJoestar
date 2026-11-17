@@ -73,6 +73,18 @@ Cloud-native meal tracker: photograph a dish, get it recognized and its nutritio
  ops        infra + deploy scripted with azure cli / functions core tools
 ```
 
+#### `toxic-comment-classification` &nbsp;`private` &nbsp;`team · nlp`
+Multi-label toxicity detection on the Jigsaw Wikipedia comments dataset (6 labels: toxic, severe toxic, obscene, threat, insult, identity hate), benchmarking classical models against a fine-tuned transformer.
+```text
+ raw comments ──▶ cleaning + EDA ──▶ stratified split ─┬─▶ tf-idf ──▶ logistic regression (one-vs-rest)
+                   label co-occurrence                  ├─▶ tf-idf ──▶ linear svm
+                                                        └─▶ tokenizer ──▶ fine-tuned bert
+                                                                         (pytorch dataset / dataloader)
+
+ eval       per-label f1 + accuracy · hyperparameter sweeps visualized as heatmaps
+           · sanity checks on unseen real-world comments
+```
+
 #### `lyricflow` &nbsp;`private`
 Full-stack generative-AI product: prompt → structured lyrics → full song → cover art, with accounts, a public community feed and a paid tier.
 ```text
