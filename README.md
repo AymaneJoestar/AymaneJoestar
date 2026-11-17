@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/AymaneJoestar/AymaneJoestar/main/assets/banner.svg" width="100%" alt="Aymane Aboulhouda — AI & Big Data Engineer" />
+<img src="./assets/banner.svg" width="100%" alt="Aymane Aboulhouda — AI & Big Data Engineer" />
 
 </div>
 
