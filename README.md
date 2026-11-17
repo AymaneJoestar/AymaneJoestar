@@ -79,6 +79,7 @@ stack      react  ·  node.js  ·  gemini (lyrics)  ·  suno (music)  ·  stable
 ### `> contact`
 
 ```text
-linkedin   : https://www.linkedin.com/in/YOUR-HANDLE
-email      : YOUR-EMAIL
+github     : https://github.com/AymaneJoestar
+linkedin   : https://www.linkedin.com/in/aymane-aboulhouda
+email      : aymane.aboulhouda@usherbrooke.ca
 ```
