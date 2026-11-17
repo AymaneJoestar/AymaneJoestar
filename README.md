@@ -26,23 +26,54 @@ web        : react  node.js  astro  tailwind
 infra      : docker  linux  git  pi-hole  portainer
 ```
 
-### `> cat ~/projects.log`
+### `> ls ~/projects`
 
-| project | description | stack |
-|:--|:--|:--|
-| [`distributed-energy-forecasting`](https://github.com/AymaneJoestar/distributed-energy-forecasting) | smart-grid energy forecasting on a distributed pipeline | `spark` `hive` `hdfs` `gbt` |
-| [`License-Plate-Deblurring`](https://github.com/AymaneJoestar/License-Plate-Deblurring-ComputerVision-) | restores motion-blurred plates for recognition | `python` `opencv` |
-| [`aymane_tp`](https://github.com/AymaneJoestar/aymane_tp) | cumulative-median extension, C++ core exposed to Python | `c++` `pybind11` `numpy` |
-| `lyricflow` `[private -> public soon]` | full-stack AI lyric + music generation | `react` `node` `suno` `gemini` `sdxl` |
-| `network-ids` `[private -> public soon]` | real-time network intrusion detection | `kafka` `spark` |
+#### `ocp-intervention-app` &nbsp;`private` &nbsp;`internship · OCP Group`
+Maintenance intervention platform built during my engineering internship at OCP's Khouribga site. Technicians log interventions, and an ML service predicts their urgency live as the request is typed.
+```text
+frontend   react + vite  ·  dashboard KPIs, filtered pagination, status workflow, geocoded sites
+backend    node.js / express  ·  postgresql 15 (11 tables, triggers for stock integrity)
+ml         fastapi service  ·  tf-idf + linearsvc urgency classifier, predictions stored apart from
+           the final label so the model can be evaluated in production
+ops        docker compose (4 services)
+```
 
-### `> stats --live`
+#### `network-intrusion-detection` &nbsp;`private`
+Real-time intrusion detection over streaming network traffic: events flow through Kafka and are scored by Spark as they arrive.
+```text
+stack      apache kafka  ·  apache spark (streaming)
+```
+
+#### [`distributed-energy-forecasting`](https://github.com/AymaneJoestar/distributed-energy-forecasting)
+Big data pipeline for smart-grid energy forecasting: raw readings land in HDFS, are modeled in Hive, and feed a distributed gradient-boosted-trees regressor in Spark.
+```text
+stack      hdfs  ·  hive  ·  spark mllib (gbt)
+```
+
+#### [`License-Plate-Deblurring-ComputerVision-`](https://github.com/AymaneJoestar/License-Plate-Deblurring-ComputerVision-)
+Restores motion-blurred license plates so they can be read by OCR. Estimates the blur kernel (angle and length, via cepstrum / Radon analysis), deconvolves with Wiener and Richardson–Lucy, and scores the result with PSNR, SSIM and Tesseract OCR accuracy on synthetic benchmarks.
+```text
+stack      python  ·  opencv  ·  scikit-image  ·  scipy  ·  tesseract
+```
+
+#### [`aymane_tp`](https://github.com/AymaneJoestar/aymane_tp)
+Cumulative median of a stream in O(n log n): a C++ core keeps a sorted set and a moving pointer to the middle element, exposed to Python as a pip-installable module with pybind11, tests and Sphinx docs.
+```text
+stack      c++  ·  pybind11  ·  numpy  ·  pytest  ·  sphinx / read the docs
+```
+
+#### `lyricflow` &nbsp;`private`
+Full-stack app that writes lyrics, generates the matching song and its cover art from a single prompt, chaining three generative models.
+```text
+stack      react  ·  node.js  ·  gemini (lyrics)  ·  suno (music)  ·  stable diffusion xl (cover art)
+```
+
+### `> stats`
 
 <div align="center">
-
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=AymaneJoestar&show_icons=true&hide_border=true&include_all_commits=true&count_private=true&bg_color=050805&title_color=00ff9c&text_color=9fb3a8&icon_color=ff2bd6&ring_color=00e5ff" alt="stats" />
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=AymaneJoestar&layout=compact&hide_border=true&langs_count=8&bg_color=050805&title_color=00ff9c&text_color=9fb3a8" alt="top languages" />
-
+<img src="./assets/stats.svg" alt="GitHub stats" />
+&nbsp;
+<img src="./assets/langs.svg" alt="Top languages" />
 </div>
 
 ### `> contact`
