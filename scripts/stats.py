@@ -40,7 +40,7 @@ query($login: String!, $privacy: RepositoryPrivacy) {
 BG, BORDER = "#080d0b", "#1a2e26"
 DIM, TEXT, ACCENT, HEAD = "#4d6b5e", "#c9d6cf", "#5fd4a0", "#e6f2ec"
 FONT = "'JetBrains Mono','Fira Code','Courier New',monospace"
-SKIP = {"HTML", "CSS", "Makefile", "Dockerfile", "Shell", "Batchfile"}
+SKIP = {"HTML", "CSS", "Makefile", "Dockerfile", "Shell", "Batchfile", "Jupyter Notebook"}
 
 
 def gql():
@@ -86,7 +86,7 @@ def stats_card(u):
             f'<text x="24" y="{y}" font-size="13" fill="{TEXT}">{escape(k)}</text>'
             f'<text x="356" y="{y}" font-size="13" fill="{ACCENT}" text-anchor="end">{v}</text>\n'
         )
-    return frame(380, 66 + len(rows) * 24 + 4, "gh stats", body)
+    return frame(380, 66 + 6 * 24 + 4, "gh stats", body)
 
 
 def langs_card(u):
@@ -112,7 +112,9 @@ def langs_card(u):
             f'<rect x="168" y="{y-10}" width="{bar}" height="8" rx="2" fill="{colors[name]}"/>'
             f'<text x="356" y="{y}" font-size="13" fill="{ACCENT}" text-anchor="end">{pct:.1f}%</text>\n'
         )
-    return frame(380, 66 + max(len(top), 1) * 24 + 4, "top languages", body)
+    scope = "public + private repos" if PRIVATE else "public repos"
+    body += f'<text x="24" y="{66 + 6 * 24 - 10}" font-size="11" fill="{DIM}">{scope} · notebooks excluded · names hidden</text>\n'
+    return frame(380, 66 + 6 * 24 + 4, "top languages", body)
 
 
 if __name__ == "__main__":
