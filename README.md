@@ -51,11 +51,3 @@ infra      : docker  linux  git  pi-hole  portainer
 linkedin   : https://www.linkedin.com/in/YOUR-HANDLE
 email      : YOUR-EMAIL
 ```
-
-<div align="center">
-
-```text
-░▒▓█▓▒░  end of transmission  ░▒▓█▓▒░
-```
-
-</div>
