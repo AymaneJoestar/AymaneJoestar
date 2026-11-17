@@ -46,6 +46,33 @@ Industrial maintenance platform with an ML urgency classifier, built as a 4-serv
  ops       docker compose orchestration · persistent volumes · service dependency ordering
 ```
 
+#### `entretien-ai` &nbsp;`private`
+Real-time voice interview simulator: a live, low-latency spoken conversation with an AI interviewer (CS, AI/ML, medicine), followed by a structured performance review.
+```text
+ mic ──getUserMedia──▶ web audio (script processor) ──▶ float32 → int16 pcm 16 kHz → base64
+                                                              │
+                                              websocket session (gemini live api)
+                                                              │
+ speakers ◀── 24 kHz pcm playback ◀── streamed audio turns ◀──┘ + live input/output transcription
+
+ media      webcam + mic capture with MediaRecorder (webm) for session recording
+ eval       transcript → post-interview scoring, structured JSON enforced by response schema
+ stack      react · typescript · web audio api · gemini live (realtime bidirectional audio)
+```
+
+#### `foodscanner` &nbsp;`private` &nbsp;`azure · serverless`
+Cloud-native meal tracker: photograph a dish, get it recognized and its nutrition logged, on a fully serverless Azure backend.
+```text
+ static web frontend ──HTTP──▶ azure functions (node)
+ (azure storage $web)            ├─ uploadImage ──▶ blob storage
+                                 ├─ analyzeFood ──▶ custom vision classifier ──▶ top prediction
+                                 │                   + nutrition lookup (calories, protein, …)
+                                 └─ saveMeal ────▶ cosmos db (partitioned by user) · meal history
+
+ api        http-triggered functions · cors · GET/POST routing per function
+ ops        infra + deploy scripted with azure cli / functions core tools
+```
+
 #### `lyricflow` &nbsp;`private`
 Full-stack generative-AI product: prompt → structured lyrics → full song → cover art, with accounts, a public community feed and a paid tier.
 ```text
@@ -90,6 +117,12 @@ Native C++ extension for Python: streaming cumulative median in O(n log n).
  c++ core  ordered set + iterator pinned to the median, rebalanced on each insert
  binding   pybind11 → numpy-compatible python module, pip-installable (setuptools / pyproject)
  quality   pytest suite · sphinx documentation published on read the docs
+```
+
+#### `bladi-assurance` &nbsp;`hackathon prototype`
+Parametric crop-insurance concept for smallholder farmers: a rule-based risk engine scores drought exposure from NDVI and rainfall thresholds, plus a USSD menu simulator for access from basic feature phones.
+```text
+ stack      react · typescript · vite · recharts
 ```
 
 ### `> stats`
