@@ -1,62 +1,61 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=190&section=header&text=Aymane%20Aboulhouda&fontColor=ffffff&fontSize=44&fontAlignY=38&desc=AI%20%26%20Big%20Data%20Engineer&descSize=18&descAlignY=60" alt="header" />
-
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=18&duration=3200&pause=900&color=58A6FF&center=true&vCenter=true&width=640&lines=Building+machine+learning+%26+data+systems+that+scale;M.Sc.+Computer+Science+%E2%80%94+AI+%26+Data+Science+%40+UdeS;Distributed+pipelines+%C2%B7+Computer+Vision+%C2%B7+GenAI)](https://git.io/typing-svg)
-
-![Location](https://img.shields.io/badge/Sherbrooke%2C%20QC-0f2027?style=flat-square&logo=googlemaps&logoColor=white)
-![UdeS](https://img.shields.io/badge/M.Sc.%20CS%20%C2%B7%20Universit%C3%A9%20de%20Sherbrooke-005eb8?style=flat-square)
-![UIR](https://img.shields.io/badge/Engineering%20%C2%B7%20UIR%20Rabat-2c5364?style=flat-square)
+<img src="https://raw.githubusercontent.com/AymaneJoestar/AymaneJoestar/main/assets/banner.svg" width="100%" alt="Aymane Aboulhouda — AI & Big Data Engineer" />
 
 </div>
 
-## 👋 About
+### `> whoami`
 
-I'm a 4th-year AI & Big Data engineering student at **Université Internationale de Rabat (UIR)**, completing a double degree with an **M.Sc. in Computer Science (AI & Data Science)** at **Université de Sherbrooke**.
+```text
+name       : Aymane Aboulhouda
+role       : AI & Big Data engineering student
+school     : UIR (Rabat) x Université de Sherbrooke
+degree     : M.Sc. Computer Science, AI & Data Science (double diploma)
+location   : Sherbrooke, QC
+focus      : distributed pipelines / streaming detection / computer vision / applied GenAI
+ethos      : reproducible, measured, self-hosted, local-first
+```
 
-I like problems where data is large, messy, or fast: distributed pipelines, streaming detection, computer vision, and applied generative AI. I care about reproducible, well-measured work and about running my own infrastructure.
+### `> ls ~/stack`
 
-- 🧪 Currently: parallel computing on HPC clusters, ML systems, C++/Python extensions
-- 🛠️ Self-host a containerized home lab (Pi-hole, Portainer, Grafana-style monitoring)
-- 📫 Reach me: **[LinkedIn](https://www.linkedin.com/in/aymane-aboulhouda)** · **[email](mailto:aymane.aboulhouda@usherbrooke.ca)**
+```text
+languages  : python  c++  typescript  javascript  bash
+data       : spark  hive  hdfs  kafka
+ml / cv    : opencv  numpy  gradient-boosted-trees  pybind11
+web        : react  node.js  astro  tailwind
+infra      : docker  linux  git  pi-hole  portainer
+```
 
-## 🧰 Tech stack
+### `> cat ~/projects.log`
+
+| project | description | stack |
+|:--|:--|:--|
+| [`distributed-energy-forecasting`](https://github.com/AymaneJoestar/distributed-energy-forecasting) | smart-grid energy forecasting on a distributed pipeline | `spark` `hive` `hdfs` `gbt` |
+| [`License-Plate-Deblurring`](https://github.com/AymaneJoestar/License-Plate-Deblurring-ComputerVision-) | restores motion-blurred plates for recognition | `python` `opencv` |
+| [`aymane_tp`](https://github.com/AymaneJoestar/aymane_tp) | cumulative-median extension, C++ core exposed to Python | `c++` `pybind11` `numpy` |
+| `lyricflow` `[private -> public soon]` | full-stack AI lyric + music generation | `react` `node` `suno` `gemini` `sdxl` |
+| `network-ids` `[private -> public soon]` | real-time network intrusion detection | `kafka` `spark` |
+
+### `> stats --live`
 
 <div align="center">
 
-![Python](https://skillicons.dev/icons?i=python,cpp,ts,js,java,bash&theme=dark)
-<br/>
-![ML](https://skillicons.dev/icons?i=pytorch,tensorflow,sklearn,opencv,pandas,numpy&theme=dark)
-<br/>
-![Data](https://skillicons.dev/icons?i=spark,kafka,hadoop,postgres,mongodb,redis&theme=dark)
-<br/>
-![Web & Infra](https://skillicons.dev/icons?i=react,nodejs,astro,tailwind,docker,linux,git,githubactions&theme=dark)
+<img height="165" src="https://github-readme-stats.vercel.app/api?username=AymaneJoestar&show_icons=true&hide_border=true&include_all_commits=true&count_private=true&bg_color=050805&title_color=00ff9c&text_color=9fb3a8&icon_color=ff2bd6&ring_color=00e5ff" alt="stats" />
+<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=AymaneJoestar&layout=compact&hide_border=true&langs_count=8&bg_color=050805&title_color=00ff9c&text_color=9fb3a8" alt="top languages" />
 
 </div>
 
-## 🚀 Selected projects
+### `> contact`
 
-| Project | What it does | Stack |
-|---|---|---|
-| [**distributed-energy-forecasting**](https://github.com/AymaneJoestar/distributed-energy-forecasting) | Distributed big data pipeline forecasting smart-grid energy consumption with gradient-boosted trees | Spark · Hive · HDFS · GBT |
-| [**License-Plate-Deblurring**](https://github.com/AymaneJoestar/License-Plate-Deblurring-ComputerVision-) | Restores motion-blurred license plates to improve recognition | Python · OpenCV · Jupyter |
-| [**aymane_tp**](https://github.com/AymaneJoestar/aymane_tp) | Cumulative-median extension: C++ core exposed to Python | C++ · pybind11 · NumPy |
-| **LyricFlow** *(coming public)* | Full-stack AI lyric + music generation app | React · Node.js · Suno · Gemini · SDXL |
-| **Network Intrusion Detection** *(coming public)* | Real-time intrusion detection on streaming traffic | Kafka · Spark Streaming |
-
-## 📊 GitHub stats
+```text
+linkedin   : https://www.linkedin.com/in/YOUR-HANDLE
+email      : YOUR-EMAIL
+```
 
 <div align="center">
 
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=AymaneJoestar&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true&count_private=true" alt="stats" />
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=AymaneJoestar&layout=compact&theme=tokyonight&hide_border=true&langs_count=8" alt="top languages" />
-
-<img src="https://streak-stats.demolab.com?user=AymaneJoestar&theme=tokyonight&hide_border=true" alt="streak" />
-
-</div>
-
-<div align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2c5364,100:0f2027&height=100&section=footer" alt="footer" />
+```text
+░▒▓█▓▒░  end of transmission  ░▒▓█▓▒░
+```
 
 </div>
