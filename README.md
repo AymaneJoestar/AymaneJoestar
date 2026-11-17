@@ -18,7 +18,7 @@ I like problems where data is large, messy, or fast: distributed pipelines, stre
 
 - 🧪 Currently: parallel computing on HPC clusters, ML systems, C++/Python extensions
 - 🛠️ Self-host a containerized home lab (Pi-hole, Portainer, Grafana-style monitoring)
-- 📫 Reach me: **[LinkedIn](https://www.linkedin.com/in/YOUR-HANDLE)** · **[email](mailto:YOUR-EMAIL)**
+- 📫 Reach me: **[LinkedIn](https://www.linkedin.com/in/aymane-aboulhouda)** · **[email](mailto:aymane.aboulhouda@usherbrooke.ca)**
 
 ## 🧰 Tech stack
 
