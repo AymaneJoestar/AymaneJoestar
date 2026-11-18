@@ -10,7 +10,7 @@
 name       : Aymane Aboulhouda
 role       : AI & Big Data engineering student
 school     : UIR (Rabat) x Université de Sherbrooke
-degree     : M.Sc. Computer Science, AI & Data Science (double diploma)
+degree     : M.Sc. Computer Science, AI & Data Science / AI and Big Data Engineer(double diploma)
 location   : Sherbrooke, QC
 focus      : distributed pipelines / streaming detection / computer vision / applied GenAI
 ethos      : reproducible, measured, self-hosted, local-first
