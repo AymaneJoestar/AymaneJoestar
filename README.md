@@ -51,13 +51,13 @@ Real-time voice interview simulator: a live, low-latency spoken conversation wit
 ```text
  mic ──getUserMedia──▶ web audio (script processor) ──▶ float32 → int16 pcm 16 kHz → base64
                                                               │
-                                              websocket session (gemini live api)
+                                              websocket session (realtime speech-to-speech llm api)
                                                               │
  speakers ◀── 24 kHz pcm playback ◀── streamed audio turns ◀──┘ + live input/output transcription
 
  media      webcam + mic capture with MediaRecorder (webm) for session recording
  eval       transcript → post-interview scoring, structured JSON enforced by response schema
- stack      react · typescript · web audio api · gemini live (realtime bidirectional audio)
+ stack      react · typescript · web audio api · realtime bidirectional audio llm
 ```
 
 #### `foodscanner` &nbsp;`private` &nbsp;`azure · serverless`
@@ -85,18 +85,33 @@ Multi-label toxicity detection on the Jigsaw Wikipedia comments dataset (6 label
            · sanity checks on unseen real-world comments
 ```
 
-#### `lyricflow` &nbsp;`private`
-Full-stack generative-AI product: prompt → structured lyrics → full song → cover art, with accounts, a public community feed and a paid tier.
+#### [`lyricflow`](https://lyricflow-music.vercel.app) &nbsp;`live demo`
+AI songwriting studio: generates structured lyrics from a topic, a mood or songs you like, then cover art and a full audio track. Songs can be shared to a community feed with ratings and threaded comments.
 ```text
- react + typescript spa ──▶ express api (17 REST endpoints) ──▶ mongodb (mongoose)
-        │                        │
-        │                        ├──▶ llm   : structured JSON output enforced by response schema
-        │                        └──▶ image : server-side proxy, API keys never reach the client
-        └──▶ audio : async generation jobs, polled with bounded retries and graceful fallback
+ react spa ──▶ express api ──▶ mongodb (mongoose)
+                    │
+                    ├──▶ lyrics provider module  (llm)
+                    ├──▶ image provider module   (image generation)
+                    └──▶ audio provider module   (task id returned, client polls)
 
- security  jwt sessions · bcrypt password hashing · nosql-injection sanitization
- data      user / song document models · public profiles, comments, ratings, sharing
- client    typed service layer (db, llm, audio, image, upload) · offline cache fallback
+ stack     react 19 · typescript · vite · tailwind · node.js · express 5 · mongodb atlas
+ deploy    vercel (static frontend + serverless api)
+
+ providers lyrics, image and audio generation sit behind small swappable server-side
+           modules configured through environment variables, so changing a model or
+           vendor is a config change
+ security  no secrets in the browser: every ai call goes through the backend, which
+           rate-limits it, and requires auth for the costly ones (image, audio) ·
+           jwt auth · bcrypt with transparent migration of legacy accounts ·
+           nosql-injection sanitizing · input validation · rate limits on auth and
+           generation endpoints · server-owned identity and quotas
+ audio     generation takes minutes: the api returns a task id and the client polls
+ accounts  guest mode · password reset by email with single-use hashed expiring tokens ·
+           per-tier quotas · stripe checkout with server-side payment verification (demo/test mode)
+ quality   vitest + supertest · github actions ci (typecheck, tests, build)
+ frontend  custom "record label" design system with vinyl and sleeve motion
+
+ live      https://lyricflow-music.vercel.app (no account needed to try the lyrics)
 ```
 
 #### `network-intrusion-detection` &nbsp;`private`
