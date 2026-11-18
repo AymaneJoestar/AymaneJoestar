@@ -48,7 +48,7 @@ Industrial maintenance platform with an ML urgency classifier, built as a 4-serv
  ops       docker compose orchestration · persistent volumes · service dependency ordering
 ```
 
-#### [`lyricflow`](https://lyricflow-music.vercel.app) &nbsp;`live demo`
+#### [`lyricflow`](https://lyricflow-music.vercel.app) &nbsp;`live demo` &nbsp;`private`
 AI songwriting studio: generates structured lyrics from a topic, a mood or songs you like, then cover art and a full audio track. Songs can be shared to a community feed with ratings and threaded comments.
 ```text
  react spa ──▶ express api ──▶ mongodb (mongoose)
