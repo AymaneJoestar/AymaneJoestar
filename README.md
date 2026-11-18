@@ -28,6 +28,8 @@ infra      : docker  linux  git  pi-hole  portainer
 
 ### `> ls ~/projects`
 
+Private repositories are available on request: email aymane.aboulhouda@usherbrooke.ca.
+
 #### `ocp-intervention-app` &nbsp;`private` &nbsp;`internship · OCP Group`
 Industrial maintenance platform with an ML urgency classifier, built as a 4-service containerized system during my engineering internship at OCP (Khouribga).
 ```text
@@ -44,6 +46,35 @@ Industrial maintenance platform with an ML urgency classifier, built as a 4-serv
  api       layered express routing · status state machine with automatic timestamps ·
            geocoding of sites via nominatim
  ops       docker compose orchestration · persistent volumes · service dependency ordering
+```
+
+#### [`lyricflow`](https://lyricflow-music.vercel.app) &nbsp;`live demo`
+AI songwriting studio: generates structured lyrics from a topic, a mood or songs you like, then cover art and a full audio track. Songs can be shared to a community feed with ratings and threaded comments.
+```text
+ react spa ──▶ express api ──▶ mongodb (mongoose)
+                    │
+                    ├──▶ lyrics provider module  (llm)
+                    ├──▶ image provider module   (image generation)
+                    └──▶ audio provider module   (task id returned, client polls)
+
+ stack     react 19 · typescript · vite · tailwind · node.js · express 5 · mongodb atlas
+ deploy    vercel (static frontend + serverless api)
+
+ providers lyrics, image and audio generation sit behind small swappable server-side
+           modules configured through environment variables, so changing a model or
+           vendor is a config change
+ security  no secrets in the browser: every ai call goes through the backend, which
+           rate-limits it, and requires auth for the costly ones (image, audio) ·
+           jwt auth · bcrypt with transparent migration of legacy accounts ·
+           nosql-injection sanitizing · input validation · rate limits on auth and
+           generation endpoints · server-owned identity and quotas
+ audio     generation takes minutes: the api returns a task id and the client polls
+ accounts  guest mode · password reset by email with single-use hashed expiring tokens ·
+           per-tier quotas · stripe checkout with server-side payment verification (demo/test mode)
+ quality   vitest + supertest · github actions ci (typecheck, tests, build)
+ frontend  custom "record label" design system with vinyl and sleeve motion
+
+ live      https://lyricflow-music.vercel.app (no account needed to try the lyrics)
 ```
 
 #### `entretien-ai` &nbsp;`private`
@@ -83,35 +114,6 @@ Multi-label toxicity detection on the Jigsaw Wikipedia comments dataset (6 label
 
  eval       f1 + accuracy · hyperparameter sweeps visualized as heatmaps
            · sanity checks on unseen real-world comments
-```
-
-#### [`lyricflow`](https://lyricflow-music.vercel.app) &nbsp;`live demo`
-AI songwriting studio: generates structured lyrics from a topic, a mood or songs you like, then cover art and a full audio track. Songs can be shared to a community feed with ratings and threaded comments.
-```text
- react spa ──▶ express api ──▶ mongodb (mongoose)
-                    │
-                    ├──▶ lyrics provider module  (llm)
-                    ├──▶ image provider module   (image generation)
-                    └──▶ audio provider module   (task id returned, client polls)
-
- stack     react 19 · typescript · vite · tailwind · node.js · express 5 · mongodb atlas
- deploy    vercel (static frontend + serverless api)
-
- providers lyrics, image and audio generation sit behind small swappable server-side
-           modules configured through environment variables, so changing a model or
-           vendor is a config change
- security  no secrets in the browser: every ai call goes through the backend, which
-           rate-limits it, and requires auth for the costly ones (image, audio) ·
-           jwt auth · bcrypt with transparent migration of legacy accounts ·
-           nosql-injection sanitizing · input validation · rate limits on auth and
-           generation endpoints · server-owned identity and quotas
- audio     generation takes minutes: the api returns a task id and the client polls
- accounts  guest mode · password reset by email with single-use hashed expiring tokens ·
-           per-tier quotas · stripe checkout with server-side payment verification (demo/test mode)
- quality   vitest + supertest · github actions ci (typecheck, tests, build)
- frontend  custom "record label" design system with vinyl and sleeve motion
-
- live      https://lyricflow-music.vercel.app (no account needed to try the lyrics)
 ```
 
 #### `network-intrusion-detection` &nbsp;`private`
